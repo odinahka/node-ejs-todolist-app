@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<%- include("header") -%>
+<body>
+    <div class="box" id="heading">
+        <h1><%= title %></h1>
+    </div>
+    <div class="box">
+            <form action="/delete" method="post">
+            <%for(const newTodo of items){%>
+            <div class="item">
+                <input name="todoId" value="<%= newTodo._id %>" onchange="this.form.submit()" type="checkbox">
+                <p><%= newTodo.name %></p>
+            </div>
+            <%}%>   
+            </form>
+
+               
+          <form class="item" action="/" method="post">
+            <input type="text" placeholder="New Item" name="newTodo" autocomplete="off">
+            <button type="submit" name="save" value="<%=title%>">+</button>
+        </form> 
+    </div>
+</body>
+<%- include("footer") -%>
+</html>
